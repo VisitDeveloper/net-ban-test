@@ -4,17 +4,19 @@ import './index.css'
 import { Suspense } from 'react'
 
 const Loading = () => {
-  return(
+  return (
     <>
-    ...loading
+      ...loading
     </>
   )
 }
 
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
-  <Suspense fallback={<Loading/>}> 
-    <App />
-  </Suspense>
+  <>
+    <Suspense fallback={<Loading />}>
+      <App />
+    </Suspense>
+  </>
   ,
 )

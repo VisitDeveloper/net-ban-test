@@ -10,9 +10,10 @@ import { TypeAssetsEnum } from "./enum/service/type-assets";
 const assetsService = new AssetsService();
 function App() {
 
-  const [cardData, setCardData] = useState<Array<DataCards>>()
-  const [typeAssets, setTypeAssets] = useState<TypeAssetsEnum>(TypeAssetsEnum.all)
-  const [resultofAssets, setResultOfAssets] = useState<Array<AssetsArray>>([])
+  const [cardData, setCardData] = useState<Array<DataCards>>();
+  const [loading, setLoading] = useState<boolean>(true);
+  const [typeAssets, setTypeAssets] = useState<TypeAssetsEnum>(TypeAssetsEnum.all);
+  const [resultofAssets, setResultOfAssets] = useState<Array<AssetsArray>>([]);
 
   useEffect(() => {
     getDataAssets(TypeAssetsEnum.all)
@@ -38,6 +39,8 @@ function App() {
 
     } catch (e) {
       console.log(e)
+    } finally{
+      setLoading(false)
     }
   }
 
@@ -48,6 +51,7 @@ function App() {
     }
   }, [typeAssets]);
 
+  if (loading) return <div className="font-bold text-white flex flex-row justify-center items-center">Loading...</div>;
 
   return (
     <>
