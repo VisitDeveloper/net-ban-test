@@ -43,7 +43,7 @@ function App() {
 
   useEffect(() => {
     
-    if (typeAssets !== TypeAssetsEnum.all && TypeAssetsEnum.assets) {
+    if (typeAssets !== TypeAssetsEnum.all && typeAssets !== TypeAssetsEnum.assets) {
       getDataAssets(typeAssets);
     }
   }, [typeAssets]);
@@ -58,7 +58,7 @@ function App() {
           <Cards cardData={cardData} setTypeAssets={setTypeAssets} />
 
           {/* down section   */}
-          <ListsItem resultofAssets={resultofAssets} onClick={() => setTypeAssets(TypeAssetsEnum.all)} />
+          <ListsItem resultofAssets={resultofAssets}  />
         </div>
       </div>
     </>

@@ -6,11 +6,10 @@ import { formatTimestamp } from '@/tools/js-date-convert';
 
 interface ListsItemProps {
     resultofAssets: Array<AssetsArray>;
-    onClick: () => void
 }
 
 function ListsItem(props: ListsItemProps) {
-    const { resultofAssets = [], onClick = () => { } } = props;
+    const { resultofAssets = [],  } = props;
 
     return (
         <>
@@ -23,9 +22,7 @@ function ListsItem(props: ListsItemProps) {
                             Assets
                         </h3>
 
-                        <span className='bg-black rounded-md w-16 p-1 text-center' onClick={onClick}>
-                            Reset
-                        </span>
+                        
                     </div>
 
                     <div className="mt-16 flex flex-col gap-1">
